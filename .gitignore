@@ -59,13 +59,7 @@ core.*
 *.tar.gz
 *.tgz
 *.zip
-datalab-handout/
-bomblab-handout/
-attacklab-handout/
-cachelab-handout/
-shlab-handout/
-malloclab-handout/
-proxylab-handout/
+
 
 # --- Éditeurs de code et OS ---
 .vscode/
