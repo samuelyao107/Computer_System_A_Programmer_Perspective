@@ -1,0 +1,77 @@
+# ====================================================================
+# Gitignore personnalisé pour les Labs de CS:APP (Computer Systems)
+# ====================================================================
+
+# --- Fichiers d'objets et binaires générés par la compilation ---
+*.o
+*.out
+*.exe
+*.a
+*.so
+
+# --- Exécutables spécifiques aux différents Labs ---
+# Data Lab
+btest
+fshow
+ishow
+
+# Bomb Lab
+bomb
+
+# Attack Lab
+ctarget
+rtarget
+hex2raw
+
+# Cache Lab
+csim
+test-csim
+
+# Shell Lab
+tsh
+myspin
+mysplit
+mystop
+myint
+
+# Malloc Lab
+mdriver
+
+# Proxy Lab
+proxy
+
+# --- Fichiers de log, de traces et de tests ---
+*.log
+driver.log
+tracebin/
+cache_trace*.txt
+.inputs
+.outputs
+
+# --- Dumps système et rapports de crash ---
+core
+core.*
+*.dSYM/
+*.stackdump
+
+# --- Fichiers temporaires et archives de distribution ---
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+datalab-handout/
+bomblab-handout/
+attacklab-handout/
+cachelab-handout/
+shlab-handout/
+malloclab-handout/
+proxylab-handout/
+
+# --- Éditeurs de code et OS ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
