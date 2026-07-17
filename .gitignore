@@ -1,15 +1,15 @@
 # ====================================================================
-# Gitignore personnalisé pour les Labs de CS:APP (Computer Systems)
+# Gitignore Global pour le dépôt CS:APP (S'applique à tous les sous-dossiers)
 # ====================================================================
 
-# --- Fichiers d'objets et binaires générés par la compilation ---
+# --- Fichiers objets et binaires compilés ---
 *.o
 *.out
 *.exe
 *.a
 *.so
 
-# --- Exécutables spécifiques aux différents Labs ---
+# --- Exécutables spécifiques aux Labs ---
 # Data Lab
 btest
 fshow
@@ -40,32 +40,29 @@ mdriver
 # Proxy Lab
 proxy
 
-# --- Fichiers de log, de traces et de tests ---
+# --- Fichiers de log, traces et tests ---
 *.log
-driver.log
-tracebin/
-cache_trace*.txt
 .inputs
 .outputs
+tracebin/
+driver.log
 
-# --- Dumps système et rapports de crash ---
+# --- Dumps système (Crash mémoire) ---
 core
 core.*
 *.dSYM/
 *.stackdump
 
-# --- Fichiers temporaires et archives de distribution ---
+# --- Archives brutes (Ne garde que tes dossiers extraits, ignore les zips d'origine) ---
 *.tar
 *.tar.gz
 *.tgz
 *.zip
 
-
-# --- Éditeurs de code et OS ---
+# --- Fichiers temporaires et de configuration des éditeurs ---
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
-Thumbs.db
