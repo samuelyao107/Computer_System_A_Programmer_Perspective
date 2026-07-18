@@ -185,7 +185,30 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+  int val0,val1;
+  //we dont care if even numbers are 0 or 1 if the condition is met
+  /*val0=0xAA;
+  val1 = x & val0;
+  val1 = val1 ^ val0;
+
+  val0=0xAA<<8;
+  val2 = x & val0;
+  val2 = val2 ^ val0;
+
+  val0=0xAA<<16;
+  val3 = x & val0;
+  val3 = val3 ^ val0;
+
+  val0=0xAA<<24;
+  val4 = x & val0;
+  val4 = val4 ^ val0;*/
+
+  val0 = 0xAA + (0xAA<<8) + (0xAA<<16) + (0xAA<<24);
+
+  val1 = x & val0;
+  val1 = val1 ^ val0;
+  
+  return !val1;
 }
 /* 
  * negate - return -x 
@@ -195,7 +218,9 @@ int allOddBits(int x) {
  *   Rating: 2
  */
 int negate(int x) {
-  return 2;
+  int neg;
+  neg= ~x +1;
+  return neg;
 }
 //3
 /* 
@@ -208,7 +233,20 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  //faire attention | nest pas + => 1|1 = 1 et 1+1 = 0 sur un bit et 1 de retenu
+  int val0,val1,val2,val3,val4,val5,val6;
+  val0 = 1<<31;
+  val1 = ~x+1;
+  
+  val2 = 0x39 + val1; //must be positive
+
+  val3 = ~0x30+1;
+  val4 = val3 + x; //must be positive
+
+  val5 = val0 & val2;
+  val6 = val0 & val4;
+
+  return !((val5 ^ val6) | val5 | val6);
 }
 /* 
  * conditional - same as x ? y : z 
@@ -218,7 +256,12 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  
+  x = !x; //transformer en 0 ou 1
+  x = x<<31;
+  x = x>>31; //1000000...00 shifté à droite sur un entier signé => rempli de 1
+
+  return (~x & y)|(x & z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
