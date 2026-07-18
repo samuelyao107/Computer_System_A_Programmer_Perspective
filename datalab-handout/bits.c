@@ -271,7 +271,13 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  //dans le cas d un overflow ça ne marche plus
+  int val,mask;
+  mask = 1 <<31;
+  val = y + (~x+1);
+  val = val & mask;
+  val = !val;
+  return val;
 }
 //4
 /* 
@@ -283,7 +289,14 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  //bit de signe de 0 est le meme que celui de -0 le seul nombre ayant cette propriété
+  int val0,val1,val2,val3;
+  val0 = 1<<31;
+  val1 = x & val0;
+  val2 = (~x +1) & val0; 
+  val3 = val1 | val2;
+  val3 = val3 >>31;
+  return val3+1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -298,6 +311,7 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
+
   return 0;
 }
 //float
